@@ -7,7 +7,7 @@ Computing mean/variance of ChIP-seq signal per bin
 Generating training samples using correlation-based labels
 Training a small PyTorch neural network
 Producing and visualizing a 2D interaction score matrix
-This project is intentionally minimal and optimized for running on a mobile Python environment (e.g., PyDroid).
+This project is intentionally minimal and optimized for running on a mobile Python environment (PyDroid).
 
 Features
 Genome binning at 5,000 bp resolution
@@ -29,7 +29,7 @@ numpy
 torch (PyTorch)
 matplotlib
 
-How It Works (Step-by-Step)
+How It Works (Step by Step)
 1. Load BED file
 The script loads a BED-like file containing genomic peaks and signal values.
 The expected file path (as used in the script) is:
