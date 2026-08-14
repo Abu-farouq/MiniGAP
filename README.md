@@ -8,7 +8,7 @@ The current version uses ChIP-seq peak-signal data to construct features for nea
 
  Important scientific note
 
-This repository is currently an educational prototype. It does not yet make experimentally validated chromatin-interaction predictions.
+This repository is currently an educational prototype. It does **not** yet make experimentally validated chromatin-interaction predictions.
 
 The original correlation-based labeling approach is being replaced. The next version will use experimentally measured Hi-C contact data as ground-truth labels and matched epigenomic features from the same cell type and genome assembly.
 
@@ -55,64 +55,6 @@ The present script expects a local BED-like input file. Update the input path in
 ```bash
 python miniGAP.py
 ```
-
  Status
 
 Active development. The repository is being transitioned from a demonstration prototype to a reproducible, scientifically grounded genomic interaction-modeling project.
-
-Features
-Genome binning at 5,000 bp resolution
-Automatic feature extraction:
-Signal A
-Signal B
-Absolute difference
-Genomic distance (in bins)
-Correlation-based binary labels
-Tiny neural network (4 and 16 and 8 and 1)
-Heatmap visualization of predicted interactions for the first 50 bins
-
-Project Structure
-miniGAP.py   # Main script
-Requirements
-All dependencies used in this project are directly visible in the code:
-pandas
-numpy
-torch (PyTorch)
-matplotlib
-
-How It Works (Step by Step)
-1. Load BED file
-The script loads a BED-like file containing genomic peaks and signal values.
-The expected file path (as used in the script) is:
-/storage/emulated/0/ENCFF252PLM.bed.txt
-2. Bin the genome
-Each genomic position is assigned to a 5,000 bp bin.
-3. Compute features
-For each bin, the mean and variance of the signal are calculated.
-4. Generate training samples
-Only bins within a distance of 10 are used.
-Labels are assigned based on correlation > 0.5.
-5. Train a small neural network
-The model predicts interaction likelihood between two bins.
-6. Generate interaction matrix
-Predictions for the first 50 bins are visualized as a heatmap.
-
-Usage
-Run the script:
-python miniGAP.py
-Output includes:
-Training logs (loss per epoch)
-Interaction heatmap visualization
-Printed confirmation when complete
-
-Example Output
-Dataset size information
-Training loss for each epoch
-Heatmap of predicted interaction scores
-
-Notes
-The label creation uses a simple correlation threshold (0.5).
-If the correlation cannot be confirmed or falls below threshold, the label is 0.
-All steps and calculations are visible in the code for transparency.
-No external assumptions are used beyond what is explicitly in the script.
-
