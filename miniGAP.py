@@ -71,7 +71,7 @@ N = 50
 score_matrix = np.zeros((N, N))
 
 for i in range(N):
-    for j in range(i+1, min(i+MAX_DISTANCE, N)):
+    for j in range(i+1, min(i+max_distance, N)):
         score = get_interaction_score(signals[i], signals[j], j-i)
         score_matrix[i, j] = score
         score_matrix[j, i] = score
